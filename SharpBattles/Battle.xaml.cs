@@ -99,7 +99,7 @@ namespace SharpBattles
             string t = "";
             if (v < 0)
             {
-                if (p1Defend == 1) { v = Convert.ToInt32(Math.Floor(Convert.ToDouble(v) / 4)); }
+                if (p1Defend == 1) { v /= 4; }
                 if (p1Defend == 2) { if (random.Next(0, 100) > 50) v = 0; }
                 t = "Dealt " + Math.Abs(v) + " damage.";
                 if (p1Defend == 1) t += " " + p1 + " defended the attack!";
@@ -120,7 +120,7 @@ namespace SharpBattles
             string t = "";
             if (v < 0)
             {
-                if (p2Defend == 1) { v = Convert.ToInt32(Math.Floor(Convert.ToDouble(v) / 4)); }
+                if (p2Defend == 1) { v /= 4; }
                 if (p2Defend == 2) { if (random.Next(0, 100) > 50) v = 0; }
                 t = "Dealt " + Math.Abs(v) + " damage.";
                 if (p2Defend == 1) t += " " + p2 + " defended the attack!";
@@ -139,6 +139,12 @@ namespace SharpBattles
         private string pickEnemyMove()
         {
             return p2Attacks[random.Next(0, p2Attacks.Length)];
+        }
+
+        //Damage randomiser
+        private int damageCalc(int dmg, int rnd)
+        {
+            return -dmg + random.Next(0, rnd*2) - rnd;
         }
 
         //Handle all button presses
@@ -181,17 +187,17 @@ namespace SharpBattles
 		
 		        //Enemy moves
 		        if(t=="Slash") {
-                    _battleNotes.Text = p2 + " used Slash. " + updateP1Health(-200 + random.Next(0, 20) - 10);
+                    _battleNotes.Text = p2 + " used Slash. " + updateP1Health(damageCalc(200,10));
 		        }
 		        if(t=="Stab") {
                     if (random.Next(0, 100) > 50)
-                        _battleNotes.Text = p2 + " used Stab. " + updateP1Health(-400 + random.Next(0, 30) - 15);
+                        _battleNotes.Text = p2 + " used Stab. " + updateP1Health(damageCalc(400, 15));
 			        else
                         _battleNotes.Text = p2 + " used Stab, and missed.";
 		        }
 		        if(t=="Shoot") {
                     if (random.Next(0, 100) > 25)
-                        _battleNotes.Text = p2 + " used Shoot. " + updateP1Health(-300 + random.Next(0, 30) - 15);
+                        _battleNotes.Text = p2 + " used Shoot. " + updateP1Health(damageCalc(300, 15));
 			        else
                         _battleNotes.Text = p2 + " used Shoot, and missed.";
 		        }
@@ -205,24 +211,24 @@ namespace SharpBattles
 		        }
 		        if(t=="Fireball") {
                     if (random.Next(0, 100) > 25)
-                        _battleNotes.Text = p2 + " used Fireball. " + updateP1Health(-300 + random.Next(0, 30) - 15);
+                        _battleNotes.Text = p2 + " used Fireball. " + updateP1Health(damageCalc(300, 15));
 			        else
                         _battleNotes.Text = p2 + " used Fireball, and missed.";
 		        }
 		        if(t=="Thunder") {
                     if (random.Next(0, 100) > 75)
-                        _battleNotes.Text = p2 + " used Thunder. " + updateP1Health(-500 + random.Next(0, 40) - 20);
+                        _battleNotes.Text = p2 + " used Thunder. " + updateP1Health(damageCalc(500, 20));
 			        else
                         _battleNotes.Text = p2 + " used Thunder, and missed.";
 		        }
 		        if(t=="Heal") {
-			        int heal = 200+random.Next(0, 150) - 100;
+                    int heal = -damageCalc(175, 75);
                     _battleNotes.Text = p2 + " used Heal, and recovered " + heal + " HP!";
                     updateP2Health(heal);
 		        }
 		        if(t=="Dark Arts") {
                     if (random.Next(0, 100) > 85)
-                        _battleNotes.Text = p2 + " used Dark Arts. " + updateP1Health(-800 + random.Next(0, 300) - 150);
+                        _battleNotes.Text = p2 + " used Dark Arts. " + updateP1Health(damageCalc(800, 150));
 			        else
                         _battleNotes.Text = p2 + " used Dark Arts, and missed.";
 		        }
@@ -235,17 +241,17 @@ namespace SharpBattles
 	        //Player moves
 	        else {
 		        if(t=="Slash") {
-                    _battleNotes.Text = p1 + " used Slash. " + updateP2Health(-200 + random.Next(0, 20) - 10);
+                    _battleNotes.Text = p1 + " used Slash. " + updateP2Health(damageCalc(200, 10));
 		        }
 		        if(t=="Stab") {
                     if (random.Next(0, 100) > 50)
-                        _battleNotes.Text = p1 + " used Stab. " + updateP2Health(-400 + random.Next(0, 30) - 15);
+                        _battleNotes.Text = p1 + " used Stab. " + updateP2Health(damageCalc(400, 15));
 			        else
                         _battleNotes.Text = p1 + " used Stab, and missed.";
 		        }
 		        if(t=="Shoot") {
                     if (random.Next(0, 100) > 25)
-                        _battleNotes.Text = p1 + " used Shoot. " + updateP2Health(-300 + random.Next(0, 30) - 15);
+                        _battleNotes.Text = p1 + " used Shoot. " + updateP2Health(damageCalc(300, 15));
 			        else
                         _battleNotes.Text = p1 + " used Shoot, and missed.";
 		        }
@@ -259,18 +265,18 @@ namespace SharpBattles
 		        }
 		        if(t=="Fireball") {
                     if (random.Next(0, 100) > 25)
-                        _battleNotes.Text = p1 + " used Fireball. " + updateP2Health(-300 + random.Next(0, 30) - 15);
+                        _battleNotes.Text = p1 + " used Fireball. " + updateP2Health(damageCalc(300, 15));
 			        else
                         _battleNotes.Text = p1 + " used Fireball, and missed.";
 		        }
 		        if(t=="Thunder") {
                     if (random.Next(0, 100) > 75)
-                        _battleNotes.Text = p1 + " used Thunder. " + updateP2Health(-500 + random.Next(0, 40) - 20);
+                        _battleNotes.Text = p1 + " used Thunder. " + updateP2Health(damageCalc(500, 20));
 			        else
                         _battleNotes.Text = p1 + " used Thunder, and missed.";
 		        }
 		        if(t=="Heal") {
-                    int heal = 200 + random.Next(0, 150) - 100;
+                    int heal = -damageCalc(175, 75);
                     _battleNotes.Text = p1 + " used Heal, and recovered " + heal + " HP!";
                     updateP1Health(heal);
 		        }

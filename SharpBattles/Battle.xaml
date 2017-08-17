@@ -22,16 +22,33 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <TextBlock x:Name="_player1Name" HorizontalAlignment="Left" FontSize="28" Margin="8">Player 1</TextBlock>
-            <TextBlock x:Name="_player2Name" HorizontalAlignment="Right" FontSize="28" Margin="8" Grid.Column="1">Player 2</TextBlock>
-            <Image x:Name="_player1" Source="Images/Swordsman.png" Margin="64" Grid.Row="1"></Image>
-            <Image x:Name="_player2" Source="Images/Slime.png" Margin="64" Grid.Row="1" Grid.Column="1"></Image>
-            <TextBlock HorizontalAlignment="Left" FontSize="28" Margin="8" Grid.Row="2">Health: <Run x:Name="_player1Health">1000</Run>/1000</TextBlock>
-            <TextBlock HorizontalAlignment="Right" FontSize="28" Margin="8" Grid.Row="2" Grid.Column="1">Health: <Run x:Name="_player2Health">1000</Run>/1000</TextBlock>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="_player1Name" HorizontalAlignment="Left" FontSize="28" Margin="8">Player 1</TextBlock>
+                <TextBlock x:Name="_player2Name" HorizontalAlignment="Right" FontSize="28" Margin="8" Grid.Column="1">Player 2</TextBlock>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.Background>
+                    <ImageBrush ImageSource="Images/Landscape.png" Stretch="UniformToFill"/>
+                </Grid.Background>
+                <Image x:Name="_player1" Source="Images/Swordsman.png" Margin="64"></Image>
+                <Image x:Name="_player2" Source="Images/Slime.png" Margin="64" Grid.Column="1"></Image>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock HorizontalAlignment="Left" FontSize="28" Margin="8">Health: <Run x:Name="_player1Health">1000</Run>/1000</TextBlock>
+                <TextBlock HorizontalAlignment="Right" FontSize="28" Margin="8" Grid.Column="1">Health: <Run x:Name="_player2Health">1000</Run>/1000</TextBlock>
+            </Grid>
         </Grid>
         <TextBlock x:Name="_battleNotes" HorizontalAlignment="Center" FontSize="28" Grid.Row="2">Notes</TextBlock>
         <StackPanel x:Name="_attackList" HorizontalAlignment="Center" Orientation="Horizontal" Margin="8" Grid.Row="3"></StackPanel>

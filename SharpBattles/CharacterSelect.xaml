@@ -20,27 +20,38 @@
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <ComboBox x:Name="_player1Select" Height="32" Margin="8" FontSize="18" SelectionChanged="_player1Select_SelectionChanged">
-                <ComboBoxItem IsSelected="True">Swordsman</ComboBoxItem>
-                <ComboBoxItem>Archer</ComboBoxItem>
-                <ComboBoxItem>Mage</ComboBoxItem>
-                <ComboBoxItem>Knight</ComboBoxItem>
-            </ComboBox>
-            <ComboBox x:Name="_player2Select" Height="32" Margin="8" FontSize="18" Grid.Column="1" SelectionChanged="_player2Select_SelectionChanged">
-                <ComboBoxItem IsSelected="True">Slime</ComboBoxItem>
-                <ComboBoxItem>Goblin</ComboBoxItem>
-                <ComboBoxItem>Bat</ComboBoxItem>
-                <ComboBoxItem>Mimic</ComboBoxItem>
-                <ComboBoxItem>Witch</ComboBoxItem>
-                <ComboBoxItem>Dragon</ComboBoxItem>
-                <ComboBoxItem>Wyvern</ComboBoxItem>
-            </ComboBox>
-            <Image x:Name="_player1" Source="Images/Swordsman.png" Margin="128" Grid.Row="1"></Image>
-            <Image x:Name="_player2" Source="Images/Slime.png" Margin="128" Grid.Row="1" Grid.Column="1"></Image>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <ComboBox x:Name="_player1Select" Height="32" Margin="8" FontSize="18" SelectionChanged="_player1Select_SelectionChanged">
+                    <ComboBoxItem IsSelected="True">Swordsman</ComboBoxItem>
+                    <ComboBoxItem>Archer</ComboBoxItem>
+                    <ComboBoxItem>Mage</ComboBoxItem>
+                    <ComboBoxItem>Knight</ComboBoxItem>
+                </ComboBox>
+                <ComboBox x:Name="_player2Select" Height="32" Margin="8" FontSize="18" Grid.Column="1" SelectionChanged="_player2Select_SelectionChanged">
+                    <ComboBoxItem IsSelected="True">Slime</ComboBoxItem>
+                    <ComboBoxItem>Goblin</ComboBoxItem>
+                    <ComboBoxItem>Bat</ComboBoxItem>
+                    <ComboBoxItem>Mimic</ComboBoxItem>
+                    <ComboBoxItem>Witch</ComboBoxItem>
+                    <ComboBoxItem>Dragon</ComboBoxItem>
+                    <ComboBoxItem>Wyvern</ComboBoxItem>
+                </ComboBox>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.Background>
+                    <ImageBrush ImageSource="Images/Landscape.png" Stretch="UniformToFill"/>
+                </Grid.Background>
+                <Image x:Name="_player1" Source="Images/Swordsman.png" Margin="128"></Image>
+                <Image x:Name="_player2" Source="Images/Slime.png" Margin="128" Grid.Column="1"></Image>
+            </Grid>
         </Grid>
         <TextBlock x:Name="_vsText" HorizontalAlignment="Center" FontSize="28" Grid.Row="2">Swordsman vs. Slime</TextBlock>
         <Button x:Name="_startBattle" Height="32" Margin="8" FontSize="18" Grid.Row="3" Click="_startBattle_Click">Start Battle</Button>

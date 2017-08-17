@@ -1,0 +1,48 @@
+﻿<Page x:Class="SharpBattles.CharacterSelect"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1280"
+	Title="Character Select">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock HorizontalAlignment="Center" FontSize="28">SharpBattles - Character Select</TextBlock>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <ComboBox x:Name="_player1Select" Height="32" Margin="8" FontSize="18" SelectionChanged="_player1Select_SelectionChanged">
+                <ComboBoxItem IsSelected="True">Swordsman</ComboBoxItem>
+                <ComboBoxItem>Archer</ComboBoxItem>
+                <ComboBoxItem>Mage</ComboBoxItem>
+                <ComboBoxItem>Knight</ComboBoxItem>
+            </ComboBox>
+            <ComboBox x:Name="_player2Select" Height="32" Margin="8" FontSize="18" Grid.Column="1" SelectionChanged="_player2Select_SelectionChanged">
+                <ComboBoxItem IsSelected="True">Slime</ComboBoxItem>
+                <ComboBoxItem>Goblin</ComboBoxItem>
+                <ComboBoxItem>Bat</ComboBoxItem>
+                <ComboBoxItem>Mimic</ComboBoxItem>
+                <ComboBoxItem>Witch</ComboBoxItem>
+                <ComboBoxItem>Dragon</ComboBoxItem>
+                <ComboBoxItem>Wyvern</ComboBoxItem>
+            </ComboBox>
+            <Image x:Name="_player1" Source="Images/Swordsman.png" Margin="128" Grid.Row="1"></Image>
+            <Image x:Name="_player2" Source="Images/Slime.png" Margin="128" Grid.Row="1" Grid.Column="1"></Image>
+        </Grid>
+        <TextBlock x:Name="_vsText" HorizontalAlignment="Center" FontSize="28" Grid.Row="2">Swordsman vs. Slime</TextBlock>
+        <Button x:Name="_startBattle" Height="32" Margin="8" FontSize="18" Grid.Row="3" Click="_startBattle_Click">Start Battle</Button>
+    </Grid>
+</Page>

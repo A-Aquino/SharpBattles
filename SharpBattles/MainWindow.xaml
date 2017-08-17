@@ -1,0 +1,8 @@
+﻿<Window x:Class="SharpBattles.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SharpBattles" Height="720px" Width="1280px" MinHeight="720px" MinWidth="1280px">
+    <Grid>
+        <Frame x:Name="_mainFrame" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>

@@ -1,0 +1,16 @@
+﻿<Window x:Class="SharpBattles.Attacks"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Attack List" Height="320" Width="640" MinHeight="320" MinWidth="640">
+    <StackPanel Margin="8">
+        <TextBlock FontSize="22"><Run FontWeight="Bold" Text="Slash:" /> 1× Damage, 100% Hit Rate</TextBlock>
+        <TextBlock FontSize="22"><Run FontWeight="Bold" Text="Stab:" /> 2× Damage, 50% Hit Rate</TextBlock>
+        <TextBlock FontSize="22"><Run FontWeight="Bold" Text="Shoot:" /> 1.5× Damage, 75% Hit Rate</TextBlock>
+        <TextBlock FontSize="22"><Run FontWeight="Bold" Text="Defend:" /> Take 75% Less Damage When Attacked Next</TextBlock>
+        <TextBlock FontSize="22"><Run FontWeight="Bold" Text="Dodge:" /> 50% Chance To Take No Damage When Attacked Next</TextBlock>
+        <TextBlock FontSize="22"><Run FontWeight="Bold" Text="Heal:" /> Recover Some Health</TextBlock>
+        <TextBlock FontSize="22"><Run FontWeight="Bold" Text="Fireball:" /> 1.5× Damage, 75% Hit Rate</TextBlock>
+        <TextBlock FontSize="22"><Run FontWeight="Bold" Text="Thunder:" /> 2.5× Damage, 25% Hit Rate</TextBlock>
+        <TextBlock FontSize="22"><Run FontWeight="Bold" Text="Dark Arts:" /> 4× Damage, 15% Hit Rate</TextBlock>
+    </StackPanel>
+</Window>
